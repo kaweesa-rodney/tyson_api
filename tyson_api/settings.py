@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'authentication',
     'bank_transactions',
     'users',
+    'corsheaders',
 ]
 
 REST_FRAMEWORK = {
@@ -59,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'tyson_api.urls'
@@ -124,6 +126,12 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+CORS_ORIGIN_WHITELIST = [
+    "http://localhost:8000",
+]
+
 
 JWT_SECRET_KEY = "JWT_SECRET_KEYJWT_SECRET_KEYJWT_SECRET_KEY" #open(r".\\salt.key", "rb").read()    #os.environ.get('JWT_SECRET_KEY')
 
