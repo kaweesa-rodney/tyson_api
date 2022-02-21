@@ -89,8 +89,12 @@ WSGI_APPLICATION = 'tyson_api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ddahn4lpv27v2v',
+        'HOST': 'ec2-44-192-245-97.compute-1.amazonaws.com',
+        'USER': 'ugxaoyyyjkiyul',
+        'PASSWORD': '0bccc7bd4d927adf32e56929c94058d01c6ee5fc7e13145122d36a8656d67ec9',
+        'PORT':'5432',
     }
 }
 
