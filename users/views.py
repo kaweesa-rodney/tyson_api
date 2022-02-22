@@ -1,4 +1,3 @@
-from urllib import request
 from django.shortcuts import render
 from .serializers import *
 import jwt
@@ -149,9 +148,19 @@ class System_Users(ListCreateAPIView):
 
     def perform_create(self, serializer):
         return serializer.save(
-            password = make_password(request.data['password'])
+            password = make_password(self.request.data['password'])
         )
 
+
+    def get_queryset(self):
+        return SystemUsers.objects.all()
+
+
+
+class SystemUserDetail(RetrieveUpdateDestroyAPIView):
+    serializer_class = SystemUserSerializer
+    permission_classes = (permissions.IsAuthenticated, )
+    lookup_field = "id"
 
     def get_queryset(self):
         return SystemUsers.objects.all()

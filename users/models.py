@@ -13,12 +13,12 @@ class Profile(models.Model):
 
 
 class SystemUsers(models.Model):
-    username = models.CharField(max_length=255)
+    username = models.CharField(max_length=255, unique=True)
     password = models.CharField(max_length=255)
     last_login = models.DateTimeField(null=True)
     is_active = models.BooleanField(default=True)
-    email = models.EmailField()
-    added_by = models.CharField(max_length=1)
+    email = models.EmailField(unique=True)
+    added_by = models.CharField(max_length=3)
     added_on = models.DateTimeField(default=datetime.now)
 
 class Applications(models.Model):

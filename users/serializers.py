@@ -60,4 +60,4 @@ class SystemUserSerializer(ModelSerializer):
     class Meta:
         model = SystemUsers
 
-        fields = ['username', 'password', 'last_login', 'is_active', 'email', 'added_by', 'added_on']
+        fields = ['id', 'username', 'password', 'last_login', 'is_active', 'email', 'added_by', 'added_on']
