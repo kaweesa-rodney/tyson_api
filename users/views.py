@@ -52,7 +52,7 @@ class Sub_Apps_View(ListCreateAPIView):
 class SupAppDetail(RetrieveUpdateDestroyAPIView):
     serializer_class = SubAppSerializer
     permission_classes = (permissions.IsAuthenticated,)
-    lookup_field = "id"
+    lookup_field = "sub_app_name"
     
 
     def get_queryset(self):
@@ -164,6 +164,5 @@ class SystemUserDetail(RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         return SystemUsers.objects.all()
-
 
 
