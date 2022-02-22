@@ -7,11 +7,12 @@ class UserSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(max_length=255, min_length=4)
     first_name = serializers.CharField(max_length = 255, min_length = 2)
     last_name = serializers.CharField(max_length=255, min_length = 2)
+    #id = serializers.AutoField()
 
 
     class Meta:
         model = User
-        fields = ['username', 'first_name', 'last_name', 'email', 'password']
+        fields = ['id', 'is_active', 'username', 'first_name', 'last_name', 'email', 'password']
 
 
     def validate(self, attrs):
