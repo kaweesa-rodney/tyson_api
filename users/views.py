@@ -1,3 +1,4 @@
+from urllib import request
 from django.shortcuts import render
 from .serializers import *
 import jwt
@@ -6,6 +7,7 @@ from rest_framework import status
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework import permissions
 from .models import *
+from django.contrib.auth.hashers import make_password
 
 
 # Create your views here.
@@ -136,3 +138,20 @@ class Maintenance(ListCreateAPIView):
 
     def get_queryset(self):
         return Maintenance.objects.all()
+
+
+
+
+#System users
+class System_Users(ListCreateAPIView):
+    serializer_class = SystemUserSerializer
+    permission_classes = (permissions.IsAuthenticated, )
+
+    def perform_create(self, serializer):
+        return serializer.save(
+            password = make_password(request.data['password'])
+        )
+
+
+    def get_queryset(self):
+        return SystemUsers.objects.all()

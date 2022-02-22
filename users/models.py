@@ -1,3 +1,4 @@
+from msilib.schema import Class
 from operator import mod
 from os import access
 from django.db import models
@@ -13,6 +14,15 @@ class Profile(models.Model):
     added_by = models.CharField(max_length=5, null=True)
     added_date = models.DateTimeField(default=datetime.now)
 
+
+class SystemUsers(models.Model):
+    username = models.CharField(max_length=255)
+    password = models.CharField(max_length=255)
+    last_login = models.DateTimeField(null=True)
+    is_active = models.BooleanField(default=True)
+    email = models.EmailField()
+    added_by = models.CharField(max_length=1)
+    added_on = models.DateTimeField(default=datetime.now)
 
 class Applications(models.Model):
     app_name = models.CharField(max_length=100)
