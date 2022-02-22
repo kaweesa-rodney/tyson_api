@@ -3,7 +3,7 @@ from .serializers import *
 import jwt
 from rest_framework.response import Response
 from rest_framework import status
-from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView
 from rest_framework import permissions
 from .models import *
 from django.contrib.auth.hashers import make_password
@@ -164,3 +164,6 @@ class SystemUserDetail(RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         return SystemUsers.objects.all()
+
+
+
