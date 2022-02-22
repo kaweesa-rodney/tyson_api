@@ -7,6 +7,7 @@ from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIV
 from rest_framework import permissions
 from .models import *
 from django.contrib.auth.hashers import make_password
+from django.db.models import Q
 
 
 # Create your views here.
@@ -164,5 +165,6 @@ class SystemUserDetail(RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         return SystemUsers.objects.all()
+
 
 
