@@ -10,4 +10,5 @@ urlpatterns = [
     path('sub_apps/<str:sub_app_name>', SupAppDetail.as_view()),
     path('register_user', System_Users.as_view()),
     path('update_user/<int:id>', SystemUserDetail.as_view()),
+    path('user_activity', UserActivity.as_view()),
 ]
