@@ -89,9 +89,9 @@ WSGI_APPLICATION = 'tyson_api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'tyson_prod',
+        'NAME': 'tysonapi',
         'HOST': 'localhost',
-        'USER': 'u_tyson',
+        'USER': 'u_tysonapi',
         'PASSWORD': 'lumonde',
         'PORT':'',
     }
