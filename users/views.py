@@ -92,7 +92,7 @@ class UserActivity(ListCreateAPIView):
         return serializer.save()
 
     def get_queryset(self):
-        return UserActivity.objects.all()
+        return users_activity.objects.all()
 
 
 class UserActivityDetail(RetrieveUpdateDestroyAPIView):
