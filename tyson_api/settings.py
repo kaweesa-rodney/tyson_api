@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
-import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -90,11 +89,11 @@ WSGI_APPLICATION = 'tyson_api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ddahn4lpv27v2v',
-        'HOST': 'ec2-44-192-245-97.compute-1.amazonaws.com',
-        'USER': 'ugxaoyyyjkiyul',
-        'PASSWORD': '0bccc7bd4d927adf32e56929c94058d01c6ee5fc7e13145122d36a8656d67ec9',
-        'PORT':'5432',
+        'NAME': 'tyson_prod',
+        'HOST': 'localhost',
+        'USER': 'u_tyson',
+        'PASSWORD': 'lumonde',
+        'PORT':'',
     }
 }
 
@@ -145,4 +144,3 @@ JWT_SECRET_KEY = "JWT_SECRET_KEYJWT_SECRET_KEYJWT_SECRET_KEY" #open(r".\\salt.ke
 
 STATIC_URL = '/static/'
 
-django_heroku.settings(locals())
