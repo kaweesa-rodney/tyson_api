@@ -90,7 +90,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'tyson_prod',
-        'HOST': '46.101.19.128',
+        'HOST': 'localhost',
         'USER': 'u_tyson',
         'PASSWORD': 'lumonde',
         'PORT':'',
