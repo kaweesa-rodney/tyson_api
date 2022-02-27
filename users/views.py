@@ -173,7 +173,7 @@ class UserApps(ListAPIView):
     permission_classes = (permissions.IsAuthenticated, )
 
     def get_queryset(self):
-        uid = self.request.query_params.get('uid')
+        uid = self.kwargs['uid']
         return User.objects.raw("""
             SELECT DISTINCT a.id, a.app_name FROM users_profile p 
                     inner join users_sub_apps sa on sa.id=CAST(p.sub_app_id AS INTEGER)
