@@ -176,7 +176,7 @@ class UserApps(ListAPIView):
         uid = self.request.query_params.get('uid')
         return User.objects.raw("""
             SELECT DISTINCT a.id, a.app_name FROM users_profile p 
-                    inner join users_sub_apps sa on sa.id=p.sub_app_id
-                    inner join users_applications a on a.id= sa.app_id
+                    inner join users_sub_apps sa on sa.id=CAST(p.sub_app_id AS INTEGER)
+                    inner join users_applications a on a.id= CAST(sa.app_id AS INTEGER)
                     WHERE p.user_id = %s and p.ruid_rights LIKE '%%R%%'
         """, [uid])
