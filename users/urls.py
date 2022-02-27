@@ -12,4 +12,5 @@ urlpatterns = [
     path('update_user/<int:id>', SystemUserDetail.as_view()),
     path('user_activity', UserActivity.as_view()),
     path('user_apps/<str:uid>', UserApps.as_view()),
+    path('user_sub_apps/<str:uid>', UserSubApps.as_view()),
 ]

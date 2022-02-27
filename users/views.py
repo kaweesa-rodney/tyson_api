@@ -180,3 +180,16 @@ class UserApps(ListAPIView):
                     inner join users_applications a on a.id= CAST(sa.app_id AS INTEGER)
                     WHERE p.user_id = %s and p.ruid_rights LIKE '%%R%%'
         """, [uid])
+
+
+
+class UserSubApps(ListAPIView):
+    serializer_class = ProfileSerializer
+    permission_classes = (permissions.IsAuthenticated, )
+
+    def get_queryset(self):
+        uid = self.kwargs['uid']
+        return User.objects.raw("""
+            SELECT * FROM users_profile
+            where user_id = %s and ruid_rights LIKE '%%R%%'
+        """, [uid])
