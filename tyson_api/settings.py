@@ -45,11 +45,10 @@ INSTALLED_APPS = [
     'corsheaders',
 ]
 
-'''REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES':(
-        'authentication.backends.JWTAuthentication',
-    )
-}'''
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES':[],
+    'DEFAULT_PERMISSION_CLASSES':[],
+}
 
 
 MIDDLEWARE = [
