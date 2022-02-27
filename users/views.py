@@ -168,3 +168,16 @@ class SystemUserDetail(RetrieveUpdateDestroyAPIView):
 
 
 
+class UserApps(ListAPIView):
+    serializer_class = AppSerializer
+    permission_classes = (permissions.IsAuthenticated, )
+    lookup_url_kwarg = "uid"
+
+    def get_queryset(self):
+        uid = self.kwargs.get(self.lookup_url_kwarg)
+        return User.objects.raw("""
+            SELECT DISTINCT a.id, a.app_name FROM users_profile p 
+                    inner join users_sub_apps sa on sa.id=p.sub_app_id
+                    inner join users_applications a on a.id= sa.app_id
+                    WHERE p.user_id = %s and p.ruid_rights LIKE '%%R%%'
+        """, [uid])

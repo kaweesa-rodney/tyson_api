@@ -11,4 +11,5 @@ urlpatterns = [
     path('register_user', System_Users.as_view()),
     path('update_user/<int:id>', SystemUserDetail.as_view()),
     path('user_activity', UserActivity.as_view()),
+    path('user_apps/<int:uid>', UserApps.as_view()),
 ]
