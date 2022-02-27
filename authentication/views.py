@@ -9,6 +9,7 @@ from django.contrib import auth
 import jwt
 import os
 
+
 # Create your views here.
 class RegisterView(GenericAPIView):
     serializer_class = UserSerializer
