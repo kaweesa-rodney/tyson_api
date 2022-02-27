@@ -189,7 +189,7 @@ class UserSubApps(ListAPIView):
 
     def get_queryset(self):
         uid = self.kwargs['uid']
-        return User.objects.raw("""
+        return Profile.objects.raw("""
             SELECT * FROM users_profile
             where user_id = %s and ruid_rights LIKE '%%R%%'
         """, [uid])
